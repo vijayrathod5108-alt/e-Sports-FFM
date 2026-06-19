@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="mr-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esports Tournament Registration</title>
+    <style>
+        :root {
+            --bg-color: #0d0d13;
+            --card-bg: #161622;
+            --accent-purple: #673ab7;
+            --accent-green: #00e676;
+            --text-main: #ffffff;
+            --text-muted: #b3b3b3;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            border: 1px solid #2a2a3a;
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        h1 {
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(45deg, #9c27b0, #00bcd4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            border-bottom: 2px solid #2a2a3a;
+            padding-bottom: 15px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-purple);
+        }
+
+        .section-title {
+            font-size: 18px;
+            color: var(--accent-purple);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .detail-item {
+            background: rgba(0,0,0,0.2);
+            padding: 10px;
+            border-radius: 6px;
+        }
+
+        .detail-item span {
+            display: block;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .detail-item strong {
+            font-size: 15px;
+            color: #fff;
+        }
+
+        ul.rules-list {
+            list-style-type: none;
+        }
+
+        ul.rules-list li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        ul.rules-list li::before {
+            content: "⚡";
+            position: absolute;
+            left: 0;
+            color: gold;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            background: #202030;
+            border: 1px solid #3a3a50;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 8px rgba(103, 58, 183, 0.5);
+        }
+
+        .payment-box {
+            text-align: center;
+            background: #1a1a2e;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px dashed var(--accent-purple);
+            margin-top: 20px;
+        }
+
+        .qr-placeholder {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 15px;
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        .btn-upi {
+            background-color: #5e35b1;
+            color: white;
+        }
+
+        .btn-upi:hover {
+            background-color: #4527a0;
+        }
+
+        .btn-submit {
+            background-color: var(--accent-green);
+            color: #000;
+        }
+
+        .btn-submit:hover {
+            background-color: #00b359;
+        }
+
+        .btn-channel {
+            background-color: #0088cc;
+            color: white;
+            margin-top: 10px;
+        }
+
+        .note {
+            font-size: 12px;
+            color: #ff5252;
+            margin-top: 10px;
+            text-align: center;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Elite Esports Tournament</h1>
+    
+    <div class="section">
+        <div class="section-title">📅 Match & Price Details</div>
+        <div class="details-grid">
+            <div class="detail-item"><span>Last Date to Register</span><strong>29/06/2026</strong></div>
+            <div class="detail-item"><span>Tournament Start</span><strong>30/06/2026</strong></div>
+            <div class="detail-item"><span>Ready Room Time</span><strong>09:00 PM</strong></div>
+            <div class="detail-item"><span>Match Start Time</span><strong>09:15 PM</strong></div>
+            <div class="detail-item"><span>Entry Fee (Per Squad)</span><strong style="color: var(--accent-green);">₹100/-</strong></div>
+            <div class="detail-item"><span>Kill Bonus</span><strong>₹20 Per Kill</strong></div>
+            <div class="detail-item"><span>Min Target Players</span><strong>48 - 50 Players</strong></div>
+            <div class="detail-item"><span>Rewards Target</span><strong>Top 3 Teams Only</strong></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">📜 Tournament Rules</div>
+        <ul class="rules-list">
+            <li>Hacking, scripting, ya kisi bhi third-party tool ka use karne par team immediate ban ho jayegi.</li>
+            <li>Teaming up or grouping with emulator players is strictly restricted. Only mobile devices are allowed.</li>
+            <li>Match start hone ke baad kisi bhi disconnectivity ki zimmedari player ki hogi.</li>
+            <li>Game start hone se 15 minute pehle (9:00 PM) sabhi ko ready rehna hoga.</li>
+            <li>Baki ke sabhi zaruri updates sirf official WhatsApp Channel par hi share kiye jayenge.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <div class="section-title">📝 Squad Registration</div>
+        <form id="regForm">
+            <div class="form-group">
+                <label for="leaderName">Squad Leader Name*</label>
+                <input type="text" id="leaderName" placeholder="Enter Leader Name" required>
+            </div>
+            <div class="form-group">
+                <label for="leaderWhatsapp">Leader WhatsApp Number*</label>
+                <input type="tel" id="leaderWhatsapp" placeholder="Enter WhatsApp Number" required>
+            </div>
+            <div class="form-group">
+                <label for="leaderUid">Leader Game UID*</label>
+                <input type="text" id="leaderUid" placeholder="Enter Leader UID" required>
+            </div>
+
+            <div class="form-group">
+                <label for="player2Uid">Player 2 Game UID*</label>
+                <input type="text" id="player2Uid" placeholder="Enter Player 2 UID" required>
+            </div>
+            <div class="form-group">
+                <label for="player3Uid">Player 3 Game UID*</label>
+                <input type="text" id="player3Uid" placeholder="Enter Player 3 UID" required>
+            </div>
+            <div class="form-group">
+                <label for="player4Uid">Player 4 Game UID*</label>
+                <input type="text" id="player4Uid" placeholder="Enter Player 4 UID" required>
+            </div>
+        </form>
+    </div>
+
+    <div class="section">
+        <div class="section-title">💳 Step 1: Secure Payment</div>
+        <div class="payment-box">
+            <div class="qr-placeholder">
+                <img src="1000161207.png" alt="PhonePe QR Code - Tushar Vijay Rathod">
+            </div>
+            <p style="font-size: 14px; margin-bottom: 10px;">UPI ID: <strong>7620476297@ybl</strong></p>
+            
+            <a href="upi://pay?pa=7620476297@ybl&pn=Tushar%20Vijay%20Rathod&am=100&cu=INR" class="btn btn-upi">
+                Pay ₹100 via Mobile UPI Apps
+            </a>
+            <p class="note">Aap upar diye gaye button par click karke direct PhonePe/GPay se automatic ₹100 pay kar sakte hain ya QR scan kar sakte hain.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">🚀 Step 2: Finalize Registration</div>
+        <button type="button" onclick="sendDetails()" class="btn btn-submit">Submit Details to Admin</button>
+        
+        <a href="https://whatsapp.com/channel/0029VbD1gJmKrWR541LNRF3k" target="_blank" class="btn btn-channel">
+            Join Official WhatsApp Channel
+        </a>
+        
+        <p class="note" style="color: #ffb300; font-weight: bold;">
+            ⚠️ Payment karne ke baad uska Screenshot personal WhatsApp par bhejna compulsory hai tabhi aapka slot confirm hoga!
+        </p>
+    </div>
+
+</div>
+
+<script>
+    function sendDetails() {
+        const leaderName = document.getElementById('leaderName').value;
+        const leaderWhatsapp = document.getElementById('leaderWhatsapp').value;
+        const leaderUid = document.getElementById('leaderUid').value;
+        const p2Uid = document.getElementById('player2Uid').value;
+        const p3Uid = document.getElementById('player3Uid').value;
+        const p4Uid = document.getElementById('player4Uid').value;
+
+        if(!leaderName || !leaderWhatsapp || !leaderUid || !p2Uid || !p3Uid || !p4Uid) {
+            alert("Kripya karke sabhi fields ko sahi tarike se fill karein!");
+            return;
+        }
+
+        const adminNumber = "9209096713";
+        const message = `🔥 *NEW TOURNAMENT REGISTRATION* 🔥\n\n` +
+                        `👤 *Leader Name:* ${leaderName}\n` +
+                        `📱 *Leader WA:* ${leaderWhatsapp}\n\n` +
+                        `🆔 *TEAM UIDs:* \n` +
+                        `1. Leader UID: ${leaderUid}\n` +
+                        `2. Player 2 UID: ${p2Uid}\n` +
+                        `3. Player 3 UID: ${p3Uid}\n` +
+                        `4. Player 4 UID: ${p4Uid}\n\n` +
+                        `💰 *Status:* Payment Done (₹100). Sending screenshot below.`;
+
+        const whatsappUrl = `https://wa.me/${adminNumber}?text=${encodeURIComponent(message)}`;
+        
+        window.open(whatsappUrl, '_blank');
+    }
+</script>
+
+</body>
+</html>
